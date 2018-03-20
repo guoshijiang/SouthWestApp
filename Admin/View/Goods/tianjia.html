@@ -1,0 +1,143 @@
+<style type="text/css">
+.addtype{
+  margin-top:5px;
+  margin-bottom: 5px;
+}
+  .icon:hover{
+  cursor: pointer;
+  color: #4fb3dd;
+}
+.icon{
+  height: 30px;
+  line-height: 30px;
+  margin-left: 10px;
+}
+.hire_box{
+  height: 30px;
+  line-height: 30px;
+  width: 100%;
+  border: solid 1px #fff;
+}
+.hire_box input{
+  margin-top: 5px;
+}
+.hire_box div{
+  float: left;
+}
+.hire_left{
+  width: 400px;
+  text-align: right;
+}
+/*.hire-right{
+  width: 600px;
+}*/
+.gudingtype{
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+.hire-submit{
+  text-align: center;
+}
+.hire_box_submit{
+  margin-top: 10px;
+  border: solid 1px #fff;
+}
+.hire_goods_introduce{
+  border: solid 1px #fff;
+  height: 100px;
+}
+.hire_goods_introduce textarea{
+  height: 80px;
+  width: 400px;
+}
+.hire_goods_introduce div{
+  float: left;
+  margin-top: 7px;
+}
+.hire_cat{
+   border: solid 1px #fff;
+   height: 30px;
+   line-height: 30px;
+}
+.hire_cat div{
+  float: left;
+}
+.hire_cat select{
+  margin-top: 5px;
+}
+</style>
+<tr>
+    <td>
+    <form action="__SELF__" method="post" enctype="multipart/form-data">
+    <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce">
+      <div class="addtype">
+           <div class="hire_box">
+              <div class="hire_left">商品名称：</div>
+              <div class="hire-right"><input type="text" name="goods_name" /></div>
+           </div>
+           <div class="hire_box">
+              <div class="hire_left">商品价格：</div>
+              <div class="hire-right"><input type="text" name="goods_price" /></div>
+           </div>
+            <div class="hire_box">
+              <div class="hire_left">商品数量：</div>
+              <div class="hire-right"><input type="text" name="goods_number" /></div>
+           </div>
+            <div class="hire_box">
+              <div class="hire_left">商品重量：</div>
+              <div class="hire-right"><input type="text" name="goods_weight" /></div>
+           </div>
+           <div class="hire_box">
+              <div class="hire_left">商品相册图片1：</div>
+              <div class="hire-right"><input type="file" name="goods_xc[]" /></div>
+           </div>
+           <div class="hire_box">
+              <div class="hire_left">商品相册图片2：</div>
+              <div class="hire-right"><input type="file" name="goods_xc[]" /></div>
+           </div>
+           <div class="hire_box">
+              <div class="hire_left">商品相册图片3：</div>
+              <div class="hire-right"><input type="file" name="goods_xc[]" /></div>
+           </div>
+      </div>
+      <div class="gudingtype">
+          <div class="hire_box">
+              <div class="hire_left">产地：</div>
+              <div class="hire-right"><input type="text" name="country" /></div>
+           </div>
+           <div class="hire_box">
+              <div class="hire_left">是否推荐：</div>
+              <div class="hire-right"> 
+                    是：<input type="radio" name="is_rec" value="1" />
+                    否：<input type="radio" name="is_rec" value="0" checked="checked" />
+             </div>
+           </div>
+           <div class="hire_box">
+              <div class="hire_left">商品logo图片：</div>
+              <div class="hire-right"><input type="file" name="goods_tx" /></div>
+           </div>
+           <div class="hire_cat">
+              <div class="hire_left">所属类型：</div>
+              <div class="hire-right">
+                    <select name='cat_id'>
+                         <option value='0'>-请选择-</option>
+                         <foreach name='cateinfo' item='v'>
+                           <option value='{$v.cat_id}'>{$v.cat_name }</option>
+                         </foreach>
+                    </select>
+               </div>
+          </div> 
+          <div class="hire_goods_introduce">
+              <div class="hire_left">描述：</div>
+              <div class="hire-right"> <textarea name="goods_introduce"></textarea></div>
+          </div> 
+          <div class="hire_box_submit">
+              <div class="hire-submit"><input type="submit" value='添加' /></div>
+          </div>
+      </div>
+    </table>
+    </form>
+    </td>
+  </tr>
+ </table>
+</body>

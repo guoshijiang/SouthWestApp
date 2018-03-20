@@ -1,0 +1,47 @@
+<tr>
+    <td>
+    <form action="__SELF__" method="post" enctype="multipart/form-data">
+      <input type="hidden" name='binfo_id' value='{$info.binfo_id}' />
+    <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce">
+      <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">客户反馈标题：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+        <input type="text" name="binfo_title" value="{$info.binfo_title}"/>
+        </div></td>
+      </tr>
+      
+      <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">客户反馈内容：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+        <input type="text" name="binfo_content" value="{$info.binfo_content}"/>
+        </div></td>
+      </tr>
+      
+	    <tr>
+	       <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">培训方式：</span></div></td>
+	       <td height="20" bgcolor="#FFFFFF" class="STYLE19">
+	        <div align="left">
+	        	未处理<input type="radio" name="binfo_status" value="0" <eq name='info.binfo_status' value='0'>checked="checked"</eq>/>
+	        	已处理<input type="radio" name="binfo_status" value="1" <eq name='info.binfo_status' value='1'>checked="checked"</eq> />
+	       	</div>
+	       </td>
+	    </tr>
+     
+     <tr>
+       <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">客户反馈时间：</span></div></td>
+       <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+       <input type="text" name="add_time" value="{$info.add_time}"/>
+       </div></td>
+     </tr>
+	
+     <tr>
+       <td height="20" bgcolor="#FFFFFF" class="STYLE6" colspan='100'>
+         <div align="center"><input type="submit" value='点击处理客户反馈' /></div>
+       </td>
+      </tr>     
+    </table>
+    </form>
+    </td>
+  </tr>
+ </table>
+</body>

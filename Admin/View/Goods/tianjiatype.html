@@ -1,0 +1,113 @@
+<style type="text/css">
+.addtype{
+  margin-top:5px;
+  margin-bottom: 5px;
+}
+  .icon:hover{
+  cursor: pointer;
+  color: #4fb3dd;
+}
+.icon{
+  height: 30px;
+  line-height: 30px;
+  margin-left: 10px;
+}
+.shopping_box{
+  height: 30px;
+  line-height: 30px;
+  width: 100%;
+  border: solid 1px #fff;
+}
+.shopping_box input{
+  margin-top: 5px;
+}
+.shopping_box div{
+  float: left;
+}
+.shopping_left{
+  width: 400px;
+  text-align: right;
+}
+/*.shopping-right{
+  width: 600px;
+}*/
+.gudingtype{
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+.shopping-submit{
+ margin-left: 400px;
+}
+.shopping_box_submit{
+  margin-top: 30px;
+  border: solid 1px #fff;
+}
+.shopping_goods_introduce{
+  border: solid 1px #fff;
+  height: 100px;
+}
+.shopping_goods_introduce textarea{
+  height: 80px;
+  width: 400px;
+}
+.shopping_goods_introduce div{
+  float: left;
+  margin-top: 7px;
+}
+.shopping_cat{
+   border: solid 1px #fff;
+   height: 30px;
+   line-height: 30px;
+}
+.shopping_cat div{
+  float: left;
+}
+.shopping_cat select{
+  margin-top: 5px;
+}
+</style>
+<tr>
+    <td>
+    <form action="__SELF__" method="post" enctype="multipart/form-data">
+    <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce">
+    <input type="hidden" name='goods_id' value='{$goods_id}' />
+      <div class="addtype">
+           <div class="shopping_box">
+              <div class="shopping_left">商品属性名称：</div>
+              <div class="shopping-right"><input type="text" name="goods_name" /></div>
+           </div>
+           <div class="shopping_box">
+              <div class="shopping_left">商品属性价格：</div>
+              <div class="shopping-right"><input type="text" name="goods_price" /></div>
+           </div>
+            <div class="shopping_box">
+              <div class="shopping_left">商品属性数量：</div>
+              <div class="shopping-right"><input type="text" name="goods_number" /></div>
+           </div>
+            <div class="shopping_box">
+              <div class="shopping_left">商品属性重量：</div>
+              <div class="shopping-right"><input type="text" name="goods_weight" /></div>
+           </div>
+           <div class="shopping_box">
+              <div class="shopping_left">商品属性相册图片1：</div>
+              <div class="shopping-right"><input type="file" name="goods_xc[]" /></div>
+           </div>
+           <div class="shopping_box">
+              <div class="shopping_left">商品属性相册图片2：</div>
+              <div class="shopping-right"><input type="file" name="goods_xc[]" /></div>
+           </div>
+           <div class="shopping_box">
+              <div class="shopping_left">商品属性相册图片3：</div>
+              <div class="shopping-right"><input type="file" name="goods_xc[]" /></div>
+           </div>
+      </div>
+          <div class="shopping_box_submit">
+              <div class="shopping-submit"><input type="submit" value='添加商品属性' /></div>
+          </div>
+      </div>
+    </table>
+    </form>
+    </td>
+  </tr>
+ </table>
+</body>

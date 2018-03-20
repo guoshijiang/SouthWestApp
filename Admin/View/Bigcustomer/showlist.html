@@ -1,0 +1,36 @@
+<script type="text/javascript" src='{$Think.const.PLUGIN_URL}jquerypage/jquery-page.js'></script>
+<link rel="stylesheet" type="text/css" href="{$Think.const.CSS_ADMIN_URL}page.css">
+<style type="text/css"> 
+  a{
+    text-decoration:none;
+    color:#00a7eb;
+  }
+</style>
+  <tr>
+    <td>
+    <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce">
+      <tr>
+          <td width="5%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">ID</span></div></td>
+          <td width="5%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">行业客户名称</span></div></td>
+          <td width="5%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">行业客户logo</span></div></td>
+          <td width="18%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">行业客户简介</span></div></td>
+          <td width="8%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">添加时间</span></div></td>
+          <td width="8%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">修改时间</span></div></td>
+          <td width="8%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">操作</span></div></td>
+      </tr>
+      <foreach name='info' key='k' item='v'>
+            <tr>
+              <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19" >{$v.bct_id}</span></div></td>
+              <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19" >{$v.bct_title}</span></div></td>
+              <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19" ><img src= '{$Think.const.SET_URL}{$v.bct_simg|substr=###,2}' alt="图片"></span></div></td>
+              <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19" >{$v.bct_content}</span></div></td>
+              <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19" > {:date('Y-m-d H:i:s',$v[add_time])}</span></div></td>
+              <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19" > {:date('Y-m-d H:i:s',$v[upd_time])}</span></div></td>
+              <td height="100" bgcolor="#FFFFFF"><div align="center" class="STYLE21"><a style='color:rgb(59,99,119)'  href="{:U('updcustomer',array('bct_id'=>$v['bct_id']))}">修改</a>&nbsp;&nbsp;&nbsp;
+              <a style='color:rgb(59,99,119)'  href=" {:U('delcustomer',array('bct_id'=>$v['bct_id']))}" onclick="if(confirm('确认要删除我么？主人')){return true;}else{return false;}" >删除</a>  </div></td>
+            </tr>
+      </foreach>
+    </table></td>
+  </tr>
+ </table>
+ 

@@ -1,0 +1,78 @@
+<style type="text/css">
+	.alone{
+		padding: 10px 0;
+	}
+	.alone span{
+		padding-left: 10px;
+	    font-weight: bold;
+	    color: #000;
+	    vertical-align: middle;
+	}
+	.alone h3{
+		margin-bottom: 10px;
+	}
+	.alone h3 span{
+	    padding:0 5px;
+	    font-size: 18px;
+	    border-left: 3px solid #000;
+	}
+	.alone label{
+		display: inline-block;
+	    padding:0 8px;
+	    height: 35px;
+	    vertical-align: middle;
+	}
+	.alone input{
+		width: 200px;
+	    padding:10px 5px;
+	    margin-bottom: 10px;
+	    vertical-align: middle;
+	    border:1px solid #ccc;
+	    border-radius: 5px;
+	}
+	.look .top,.look .bottom{
+		padding:10px 10px;
+	}
+	.look label{
+		vertical-align:initial;
+	}
+	.look strong{
+		min-width: 200px;
+		display: inline-block;
+		display: inline-block;
+		font-size: 16px;
+		padding:0 5px;
+		border-bottom: 1px solid #ccc;
+	}
+</style>
+  <tr>
+    <td>
+       <div class="mess look">
+		    <div class="top alone">
+			    <h3><span>中文信息</span></h3>
+				<label>真实姓名:</label><strong>{$info[user_name]}</strong>
+				<label>手机号码:</label><strong>{$info[user_phone]}</strong>
+				<label>邮箱:</label><strong>{$info[user_email]}</strong><br/>
+				<label>公司名称:</label><strong>{$info[user_company]}</strong>
+				<label>邮政编码:</label><strong>{$info[user_code]}</strong>
+				<label>QQ:</label><strong>{$info[qq]}</strong><br/>
+				<label>详细地址:</label><strong>{$info[user_address]}</strong>
+				<label>微信:</label><strong>{$info[weixin]}</strong><br/>
+				<label>城市省份:</label><strong>{$info[sheng]}{$info[shi]}{$info[xian]}</strong><br/>
+				<label>注册时间:</label><strong>{:date('Y-m-d H:i:s',$info['add_time'])}</strong>
+				<label>修改时间:</label><strong>{:date('Y-m-d H:i:s',$info['upd_time'])}</strong>
+				<label>登录时间:</label><strong>{:date('Y-m-d H:i:s',$info['dl_time'])}</strong>
+			</div>
+			<div class="bottom alone">
+			    <h3><span>英文信息</span></h3>
+				<label>真实姓名:</label><strong>{$info[en_user_name]}</strong>
+				<label>公司名称:</label><strong>{$info[en_user_company]}</strong>
+				<label>省份城市:</label><strong>{$info[en_user_city]}</strong><br/>
+				<label>详细地址:</label><strong>{$info[en_user_address]}</strong>
+				<label>注册时间:</label><strong>{:date('Y-m-d H:i:s',$info['add_time'])}</strong>
+			</div>
+		</div>
+    </td>
+  </tr>
+ </table>
+</body>

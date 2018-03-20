@@ -1,0 +1,173 @@
+<script type="text/javascript" src='{$Think.const.PLUGIN_URL}jquerypage/jquery-page.js'></script>
+<link rel="stylesheet" type="text/css" href="{$Think.const.CSS_ADMIN_URL}page.css">
+<style type="text/css">
+  .xuanzhou_box{
+    height: 50px;
+    line-height: 50px;
+  }
+  .txt{
+    height: 24px;
+    line-height: 24px;
+    margin-left: 50px;
+  }
+  .xuanzhou{
+    margin-left: 20px;
+    font-size: 24px;
+  }
+  .btn{
+    font-size: 18px;
+  }
+  a{
+    text-decoration:none;
+    color:#00a7eb;
+  }
+  .liang{
+    /* background-color: red;*/
+    border: solid 1px red;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    background:red;
+    font-size: 24px;
+    margin-left: 20px;
+  }
+  .yuangong_img{
+   width: 80px;
+   height: 80px;
+  }
+</style>
+  <tr>
+    <td>
+    <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce" id='yuangong_table'>
+       <tr>
+          <td width="" colspan="9" height="40" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10"><span style="color: red; font-size: 20px;">{$infogoods[goods_name]}</span>&nbsp;&nbsp;属性列表</span></div></td>
+          <td width="" height="40" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10"><span style="color: red; font-size: 20px;"><a href="{:U('tianjiatype',array('goods_id'=>$infogoods[goods_id]))}">添加</a></span></div></td>
+       </tr>
+      <tr>
+          <td width="5%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">属性名称</span></div></td>
+          <td width="5%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">价格</span></div></td>
+          <td width="5%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">数量</span></div></td>
+          <td width="5%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">重量</span></div></td>
+          <td width="6%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">商品属性图片1</span></div></td>
+          <td width="6%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">商品属性图片2</span></div></td>
+          <td width="6%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">商品属性图片3</span></div></td>
+          <td width="8%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">添加时间</span></div></td>
+          <td width="8%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">修改时间</span></div></td>
+          <td width="12%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">基本操作</span></div></td>
+      </tr>
+      <foreach name='info' key='k' item='v'>
+            <tr>
+              <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19" >{$v.goods_name}</span></div></td>
+              <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19" >{$v.goods_price}</span></div></td>
+              <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19" >{$v.goods_number}</span></div></td>
+              <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19" >{$v.goods_weight}</span></div></td>
+              <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19"><img class="yuangong_img" src='{$Think.const.SET_URL}{$v.goods_s_xc1|substr=###,2}'alt='图片'  /></span></div></td>
+              <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19"><img class="yuangong_img" src='{$Think.const.SET_URL}{$v.goods_s_xc2|substr=###,2}'alt='图片'  /></span></div></td>
+              <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19"><img class="yuangong_img" src='{$Think.const.SET_URL}{$v.goods_s_xc3|substr=###,2}'alt='图片'  /></span></div></td>
+              <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19" > {:date('Y-m-d H:i',$v[add_time])}</span></div></td>
+              <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19" > {:date('Y-m-d H:i',$v[upd_time])}</span></div></td>
+              <td height="100" bgcolor="#FFFFFF"><div align="center" class="STYLE21"><a style='color:rgb(59,99,119)'  href="{:U('updtype',array('goodtype_id'=>$v['goodtype_id']))}">修改</a>&nbsp;&nbsp;&nbsp;
+              <a style='color:rgb(59,99,119)'  href=" {:U('deltype',array('goodtype_id'=>$v['goodtype_id']))}" onclick="if(confirm('确认要删除我么？主人')){return true;}else{return false;}" >删除</a>  </div></td>
+            </tr>
+      </foreach>
+    </table></td>
+  </tr>
+ </table>
+ <!-- 分页信息 start -->
+<div id="Pagination" class="pagination">
+<!-- 这里显示分页 -->
+</div>
+<!-- 分页信息 end -->
+</body>
+<script type="text/javascript">
+//"页面加载"完毕就给span标签设置点击高亮显示的onclick事件
+ $(function(){
+  $('#xuanzhou_box a').click(function(){
+    //对应标签高亮显示
+    $('#xuanzhou_box a').attr('class','xuanzhou');//全部span标签变暗
+    $(this).attr('class','liang');//当前点击的标签"高亮"
+  });
+});
+// var cat_id =0;
+// var cat_id10  = $("#tt a");
+//   // alert(cat_id10);
+//    cat_id10.click(function(){
+//       cat_id = $(this).attr("value");
+//        // alert(cat_id);
+//        ss();
+//    });
+// var yuangong_name;
+// function search(){
+//      yuangong_name= document.getElementById("yuangong_name").value;
+//       //alert(yuangong_name);
+//      ss();
+//   }
+// var num_entries;
+// var aa;
+// var zongshu= document.getElementById("zongshu");
+// function ss(){
+//    $.ajax({
+//        url:"__MODULE__/Yuangong/find",
+//        data:{'cat_id':cat_id,'yuangong_name':yuangong_name},
+//        dataType:'json',
+//        type:'get',
+//        success:function(msg){
+//         //alert(msg);
+//          var arr1 = msg.split(',');
+//         //alert(arr1);
+//          num_entries = arr1[0];
+//          aa          = arr1[1];
+//          zongshu.innerHTML = aa;
+//          arr1.splice(0,2);
+//          yuangong_ids = arr1.join();
+//          //alert(yuangong_ids);
+//         ajs();           
+//     }
+//    });
+//  }
+//  function ajs(){
+//   (function() {
+//     $("#Pagination").pagination(num_entries, {
+//       num_edge_entries: 1, //边缘页数
+//       num_display_entries: 4, //主体页数
+//       callback: pageselectCallback,
+//       items_per_page:5 //每页显示1项
+//     });
+//    })(); 
+//     function pageselectCallback(page_index, jq){
+//       $.ajax({
+//        url:"__MODULE__/Yuangong/getyuangong",
+//        data:{'page_index':page_index,'yuangong_ids':yuangong_ids},
+//        dataType:'json',
+//        type:'get',
+//        success:function(msg){
+//            var s = "";
+//                   $.each(msg,function(n,v){
+//                      var img1   = v.yuangong_s_tx;
+//                      var img    = "http://www.wym.com"+img1;
+//                      var date1 = v.upd_time*1000;
+//                      var date2 = v.add_time*1000;
+//                      var date = new Date(date1);
+//                         Y = date.getFullYear() + '-';
+//                         M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+//                         D = (date.getDate() < 10 ? '0'+ date.getDate() : date.getDate())+ ' ';
+//                         h = (date.getHours()  < 10 ? '0'+ date.getHours() : date.getHours())+ ':';
+//                         m = (date.getMinutes()< 10 ? '0'+ date.getMinutes() : date.getMinutes()) ;
+//                      var upd_time = Y+M+D+h+m ;
+//                      var dates = new Date(date2);
+//                         Y1 = dates.getFullYear() + '-';
+//                         M1 = (dates.getMonth()+1 < 10 ? '0'+(dates.getMonth()+1) : dates.getMonth()+1) + '-';
+//                         D1 = (dates.getDate() < 10 ? '0'+ dates.getDate() : dates.getDate())+ ' ';
+//                         h1 = (dates.getHours()  < 10 ? '0'+ dates.getHours() : dates.getHours())+ ':';
+//                         m1 = (dates.getMinutes()< 10 ? '0'+ dates.getMinutes() : dates.getMinutes()) ; 
+//                      var add_time = Y1+M1+D1+h1+m1 ;
+//                         s +='<tr><td class="STYLE6" height="100" bgcolor="#FFFFFF"><div align="center"><span class="STYLE19"><img class="yuangong_img" src="'+img+'" alt="图片"></span></div></td><td class="STYLE6" height="100" bgcolor="#FFFFFF"><div align="center"><span class="STYLE19">'+v.yuangong_name+'</span></div></td><td class="STYLE6" height="100" bgcolor="#FFFFFF"><div align="center"><span class="STYLE19">'+v.cat_name+'</span></div></td><td class="STYLE6" height="100" bgcolor="#FFFFFF"><div align="center"><span class="STYLE19">'+v.yuangong_phone+'</span></div></td><td class="STYLE6" height="100" bgcolor="#FFFFFF"><div align="center"><span class="STYLE19">'+v.yuangong_jianjie+'</span></div></td><td class="STYLE6" height="100" bgcolor="#FFFFFF"><div align="center"><span class="STYLE19">'+v.yuangong_address+'</span></div></td><td class="STYLE6" height="100" bgcolor="#FFFFFF"><div align="center"><span class="STYLE19"> '+add_time+'</span></div></td><td class="STYLE6" height="100" bgcolor="#FFFFFF"><div align="center"><span class="STYLE19"> '+upd_time+'</span></div></td><td height="100" bgcolor="#FFFFFF"><div class="STYLE21" align="center"><a style="color:rgb(59,99,119)" href="/index.php/Admin/Yuangong/upd/yuangong_id/'+v.yuangong_id+'">修改</a>&nbsp;&nbsp;&nbsp;<a style="color:rgb(59,99,119)" href=" /index.php/Admin/Yuangong/del/yuangong_id/'+v.yuangong_id+'">删除</a>  </div></td></tr>';
+//                      });
+//                     $('#yuangong_table tr:gt(3)').remove();
+//                     $('#yuangong_table').append(s);  
+//         }
+//       });
+//     }
+//   }
+//  ss();
+</script>

@@ -1,0 +1,103 @@
+<script type="text/javascript" src='{$Think.const.PLUGIN_URL}jquerypage/jquery-page.js'></script>
+<link rel="stylesheet" type="text/css" href="{$Think.const.CSS_ADMIN_URL}page.css">
+<style type="text/css">
+  td a:hover{
+    color: red !important;
+    text-decoration: underline;
+  }
+</style>
+  <tr>
+    <td><table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce" id='houzhuiinfo_table'>
+      <tr>
+        <td width="5%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">用户ID</span></div></td>
+        <td width="10%" height="20" bgcolor="d3eaef " class="STYLE6"><div align="center"><span class="STYLE10">手机号码</span></div></td>
+        <td width="10%" height="20" bgcolor="d3eaef " class="STYLE6"><div align="center"><span class="STYLE10">用户邮箱</span></div></td>
+        <td width="10%" height="20" bgcolor="d3eaef " class="STYLE6"><div align="center"><span class="STYLE10">QQ</span></div></td>
+        <td width="10%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">微信号</span></div></td>
+        <td width="15%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">用户密码</span></div></td>
+        <td width="11%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">注册时间</span></div></td>
+        <td width="11%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">修改时间</span></div></td>
+        <td width="11%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">登录时间</span></div></td>
+        <td width="10%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">基本操作</span></div></td>
+      </tr>
+      <foreach name='info' key='k' item='v'>
+      <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19">{$v.user_id}</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19">{$v.user_phone}</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19">{$v.user_email}</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19">{$v.qq}</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19">{$v.weixin}</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19">{$v.user_pwd}</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center">{:date('Y-m-d H:i:s',$v['add_time'])}</div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center">{:date('Y-m-d H:i:s',$v['upd_time'])}</div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center">{:date('Y-m-d H:i:s',$v['dl_time'])}</div></td>
+        <td height="20" bgcolor="#FFFFFF"><div align="center" class="STYLE21">
+        <a style="color:rgb(59,99,119)" href=" /index.php/Admin/User/xiangqing/user_id/'+v.user_id+'">详情</a>&nbsp;<a style='color:rgb(59,99,119)'  href=" {:U('del',array('user_id'=>$v['user_id']))}" onclick="if(confirm('确认要删除我么？主人')){return true;}else{return false;}" >删除</a></div></td>
+      </tr>
+      </foreach>
+    </table>
+<!-- 分页信息 start -->
+<div id="Pagination" class="pagination">
+<!-- 这里显示分页 -->
+</div>
+<!-- 分页信息 end --></td>
+  </tr>
+ </table>
+</body>
+<input type='hidden' id='usertotal' value='{$usertotal}' />
+<script type="text/javascript">
+    $(function(){
+      (function() {
+        var num_entries = $("#usertotal").val();
+        //alert(num_entries);
+        // 创建分页
+        $("#Pagination").pagination(num_entries, {
+          num_edge_entries: 1, //边缘页数
+          num_display_entries: 4, //主体页数
+          callback: pageselectCallback,
+          items_per_page:20 //每页显示1项
+        });
+       })();
+        function pageselectCallback(page_index, jq){
+          $.ajax({
+           url:"__MODULE__/User/getuser",
+           data:{'page_index':page_index},
+           dataType:'json',
+           type:'get',
+           success:function(msg){
+           console.log(msg);
+           var s = "";
+           $.each(msg,function(n,v){
+               var date1 = v.upd_time*1000;
+               var date2 = v.add_time*1000;
+               var date3 = v.dl_time*1000;
+               var date = new Date(date1);
+                  Y = date.getFullYear() + '-';
+                  M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+                  D = (date.getDate() < 10 ? '0'+ date.getDate() : date.getDate())+ ' ';
+                  h = (date.getHours()  < 10 ? '0'+ date.getHours() : date.getHours())+ ':';
+                  m = (date.getMinutes()< 10 ? '0'+ date.getMinutes() : date.getMinutes()) ;
+               var upd_time = Y+M+D+h+m ;
+               var dates = new Date(date2);
+                  Y1 = dates.getFullYear() + '-';
+                  M1 = (dates.getMonth()+1 < 10 ? '0'+(dates.getMonth()+1) : dates.getMonth()+1) + '-';
+                  D1 = (dates.getDate() < 10 ? '0'+ dates.getDate() : dates.getDate())+ ' ';
+                  h1 = (dates.getHours()  < 10 ? '0'+ dates.getHours() : dates.getHours())+ ':';
+                  m1 = (dates.getMinutes()< 10 ? '0'+ dates.getMinutes() : dates.getMinutes()) ; 
+               var add_time = Y1+M1+D1+h1+m1 ;
+               var datess = new Date(date3);
+                  Y2 = datess.getFullYear() + '-';
+                  M2 = (datess.getMonth()+1 < 10 ? '0'+(datess.getMonth()+1) : datess.getMonth()+1) + '-';
+                  D2 = (datess.getDate() < 10 ? '0'+ datess.getDate() : datess.getDate())+ ' ';
+                  h2 = (datess.getHours()  < 10 ? '0'+ datess.getHours() : datess.getHours())+ ':';
+                  m2 = (datess.getMinutes()< 10 ? '0'+ datess.getMinutes() : datess.getMinutes()) ;
+               var dl_time = Y2+M2+D2+h2+m2 ; 
+                      s +=' <tr><td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19">'+v.user_id+'</span></div></td><td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19">'+v.user_phone+'</span></div></td><td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19">'+v.user_email+'</span></div></td><td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19">'+v.qq+'</span></div></td><td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19">'+v.weixin+'</span></div></td><td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19">'+v.user_pwd+'</span></div></td><td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center">'+add_time+'</div></td><td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center">'+upd_time+'</div></td><td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center">'+dl_time+'</div></td><td height="20" bgcolor="#FFFFFF"><div align="center" class="STYLE21"><a style="color:rgb(59,99,119)" href=" /index.php/Admin/User/xiangqing/user_id/'+v.user_id+'">详情</a>&nbsp;<a style="color:rgb(59,99,119)" href=" /index.php/Admin/User/del/user_id/'+v.user_id+'" >删除</a></div></td></tr>';
+                     });
+                    $('#houzhuiinfo_table tr:gt(0)').remove();
+                    $('#houzhuiinfo_table').append(s);  
+            }
+          });
+        }
+      });   
+ </script>

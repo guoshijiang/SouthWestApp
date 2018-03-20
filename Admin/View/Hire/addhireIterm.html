@@ -1,0 +1,95 @@
+<style type="text/css">
+.addhire{
+  margin-top:5px;
+  margin-bottom: 5px;
+}
+  .icon:hover{
+  cursor: pointer;
+  color: #4fb3dd;
+}
+.icon{
+  height: 30px;
+  line-height: 30px;
+  margin-left: 10px;
+}
+.hire_box{
+  height: 30px;
+  line-height: 30px;
+  width: 100%;
+  border: solid 1px #fff;
+}
+.hire_box input{
+  margin-top: 5px;
+}
+.hire_box div{
+  float: left;
+}
+.hire_left{
+  width: 400px;
+  text-align: right;
+}
+/*.hire-right{
+  width: 600px;
+}*/
+.gudingtype{
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+.hire-submit{
+ margin-left: 400px;
+}
+.hire_box_submit{
+  margin-top: 30px;
+  border: solid 1px #fff;
+}
+.hire_goods_introduce{
+  border: solid 1px #fff;
+  height: 100px;
+}
+.hire_goods_introduce textarea{
+  height: 80px;
+  width: 400px;
+}
+.hire_goods_introduce div{
+  float: left;
+  margin-top: 7px;
+}
+.hire_cat{
+   border: solid 1px #fff;
+   height: 30px;
+   line-height: 30px;
+}
+.hire_cat div{
+  float: left;
+}
+.hire_cat select{
+  margin-top: 5px;
+}
+</style>
+<tr>
+    <td>
+    <form action="__SELF__" method="post" enctype="multipart/form-data">
+    <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce">
+    <input type="hidden" name='hire_id' value='{$hire_id}' />
+      <div class="addhire">
+      	
+           <div class="hire_box">
+              <div class="hire_left">岗位要求：</div>
+              <div class="hire-right"><input type="text" name="work_need" /></div>
+           </div>
+           
+           <div class="hire_box">
+              <div class="hire_left">岗位职责：</div>
+              <div class="hire-right"><input type="text" name="work_duty" /></div>
+           </div>
+      </div>
+          <div class="hire_box_submit">
+              <div class="hire-submit"><input type="submit" value='添加职责与要求' /></div>
+          </div>
+      </div>
+    </table>
+    </form>
+    </td>
+  </tr>
+ </table>
+</body>

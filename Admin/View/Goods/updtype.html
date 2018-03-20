@@ -1,0 +1,60 @@
+<tr>
+    <td>
+    <form action="__SELF__" method="post" enctype="multipart/form-data">
+      <input type="hidden" name='goodtype_id' value='{$info.goodtype_id}' />
+    <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce">
+      <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">商品属性名称：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+        <input type="text" name="goods_name" value="{$info.goods_name}"/>
+        </div></td>
+      </tr>
+      <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">商品属性价格：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+        <input type="text" name="goods_price" value="{$info.goods_price}"/>
+        </div></td>
+      </tr>
+       <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">商品属性数量：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+        <input type="text" name="goods_number" value="{$info.goods_number}" />
+        </div></td>
+      </tr>
+       <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">商品属性重量：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+        <input type="text" name="goods_weight" value="{$info.goods_weight}"/>
+        </div></td>
+      </tr>
+      <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">商品属性相册图片1：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19">
+           <div align="left"><input type="file" name="goods_xc1" /><img src='{$Think.const.SET_URL}{$info.goods_s_xc1|substr=###,2}'alt='图片' width="80" height="80" /></div>
+        </td>
+      </tr>
+      <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">商品属性相册图片2：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19">
+           <div align="left"><input type="file" name="goods_xc2" /><img src='{$Think.const.SET_URL}{$info.goods_s_xc2|substr=###,2}'alt='图片' width="80" height="80" /></div>
+        </td>
+      </tr>
+      <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">商品属性图片3：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19">
+           <div align="left"><input type="file" name="goods_xc3" /><img src='{$Think.const.SET_URL}{$info.goods_s_xc3|substr=###,2}'alt='图片' width="80" height="80" /></div>
+        </td>
+      </tr>
+      <tr>
+        <td height="40" bgcolor="#FFFFFF" class="STYLE6" colspan='100'>
+           <div align="center">
+                <span><input type="submit" value='修改' /></span><span style="margin-left:40px; "><a href="{:U('goodsxiangqing',array('goods_id'=>$info[goods_id]))}">返回</a></span>
+           </div>
+        </td>
+      </tr>
+    </table>
+    </form>
+    </td>
+  </tr>
+ </table>
+</body>

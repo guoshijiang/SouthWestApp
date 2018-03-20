@@ -1,0 +1,158 @@
+<style type="text/css">
+.addhire{
+  margin-top:5px;
+  margin-bottom: 5px;
+}
+  .icon:hover{
+  cursor: pointer;
+  color: #4fb3dd;
+}
+.icon{
+  height: 30px;
+  line-height: 30px;
+  margin-left: 10px;
+}
+.hire_box{
+  height: 30px;
+  line-height: 30px;
+  width: 100%;
+  border: solid 1px #fff;
+}
+.hire_box input{
+  margin-top: 5px;
+}
+.hire_box div{
+  float: left;
+}
+.hire_left{
+  width: 400px;
+  text-align: right;
+}
+/*.hire-right{
+  width: 600px;
+}*/
+.gudingtype{
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+.hire-submit{
+  text-align: center;
+}
+.hire_box_submit{
+  margin-top: 10px;
+  border: solid 1px #fff;
+}
+.hire_goods_introduce{
+  border: solid 1px #fff;
+  height: 100px;
+}
+.hire_goods_introduce textarea{
+  height: 80px;
+  width: 400px;
+}
+.hire_goods_introduce div{
+  float: left;
+  margin-top: 7px;
+}
+.hire_cat{
+   border: solid 1px #fff;
+   height: 30px;
+   line-height: 30px;
+}
+.hire_cat div{
+  float: left;
+}
+.hire_cat select{
+  margin-top: 5px;
+}
+</style>
+<tr>
+    <td>
+    <form action="__SELF__" method="post" enctype="multipart/form-data">
+    <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce">
+      <div class="addhire">
+      	
+           <div class="hire_box">
+              <div class="hire_left">招聘职位：</div>
+              <div class="hire-right"><input type="text" name="hire_name" /></div>
+           </div>
+           
+           <div class="hire_box">
+              <div class="hire_left">招聘区域：</div>
+              <div class="hire-right"><input type="text" name="hire_area" /></div>
+           </div>
+           
+            <div class="hire_box">
+              <div class="hire_left">学历要求：</div>
+              <div class="hire-right"> 
+                    小学<input type="radio" name="hire_degree" value="0" />
+                    中学<input type="radio" name="hire_degree" value="1" />
+                    中职<input type="radio" name="hire_degree" value="2" />
+                    高职<input type="radio" name="hire_degree" value="3" />
+                    大专<input type="radio" name="hire_degree" value="4" />
+                    本科<input type="radio" name="hire_degree" value="5" checked="checked"/>
+                    硕士研究生<input type="radio" name="hire_degree" value="6"/>
+                    博士研究生<input type="radio" name="hire_degree" value="7"/>
+             </div>
+           </div>
+    
+            <div class="hire_box">
+              <div class="hire_left">工作区域：</div>
+              <div class="hire-right"><input type="text" name="work_area" /></div>
+           </div>
+           
+           <div class="hire_box">
+              <div class="hire_left">工作年限：</div>
+              <div class="hire-right"> 
+                 1-3年<input type="radio" name="work_year" value="0" checked="checked"/>
+                 3-5年<input type="radio" name="work_year" value="1" />
+                 5-10年<input type="radio" name="work_year" value="2" />
+                 10年以上<input type="radio" name="work_year" value="3" />
+             </div>
+           </div>
+           
+           <div class="hire_box">
+              <div class="hire_left">工作经验：</div>
+              <div class="hire-right"><input type="text" name="work_exp" /></div>
+           </div>
+           
+           <div class="hire_box">
+              <div class="hire_left">薪资待遇：</div>
+              <div class="hire-right"><input type="text" name="office_salary" /></div>
+           </div>
+           
+            <div class="hire_box">
+              <div class="hire_left">招聘联系人：</div>
+              <div class="hire-right"><input type="text" name="hire_person" /></div>
+           </div>
+           
+            <div class="hire_box">
+              <div class="hire_left">招聘联系电话：</div>
+              <div class="hire-right"><input type="text" name="hire_tel" /></div>
+           </div>
+           
+            <div class="hire_box">
+              <div class="hire_left">招聘联系QQ：</div>
+              <div class="hire-right"><input type="text" name="hire_qq" /></div>
+           </div>
+           
+           <div class="hire_box">
+              <div class="hire_left">招聘联系微信：</div>
+              <div class="hire-right"><input type="text" name="hire_wechat" /></div>
+           </div>
+           
+            <div class="hire_box">
+              <div class="hire_left">简历发送邮箱：</div>
+              <div class="hire-right"><input type="text" name="hire_email" /></div>
+           </div>
+           
+          <div class="hire_box_submit">
+             <div class="hire-submit"><input type="submit" value='添加' /></div>
+          </div>
+      </div>
+    </table>
+    </form>
+    </td>
+  </tr>
+ </table>
+</body>

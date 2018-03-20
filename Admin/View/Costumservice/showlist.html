@@ -1,0 +1,30 @@
+<tr>
+    <td>
+    <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce">
+      <tr>
+          <td width="5%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">ID</span></div></td>
+          <td width="5%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">客户服务人员姓名</span></div></td>
+          <td width="5%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">客户服务电话</span></div></td>
+          <td width="5%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">添加时间</span></div></td>          
+          <td width="5%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">修改时间</span></div></td>
+          <td width="6%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">操作</span></div></td>
+			</tr>
+      <foreach name='info' key='k' item='v'>
+            <tr>
+              <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19" >{$v.cos_id}</span></div></td>
+              <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19" >{$v.cos_name}</span></div></td>
+              <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19" >{$v.cos_phone}</span></div></td>
+              <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19" > {:date('Y-m-d H:i:s',$v[add_time])}</span></div></td>
+              <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19" > {:date('Y-m-d H:i:s',$v[upd_time])}</span></div></td>                    
+              <td height="100" bgcolor="#FFFFFF">
+              	<div align="center" class="STYLE21">          
+                  <a style='color:rgb(59,99,119)'  href="{:U('updCosTel',array('cos_id'=>$v['cos_id']))}">修改</a>&nbsp;&nbsp;              		
+              		<a style='color:rgb(59,99,119)'  href=" {:U('delCosTel',array('cos_id'=>$v['cos_id']))}" onclick="if(confirm('确认要删除我么？主人')){return true;}else{return false;}" >删除</a><br/>
+              	</div>
+              </td>
+            </tr>
+      </foreach>
+    </table></td>
+  </tr>
+ </table>
+ 

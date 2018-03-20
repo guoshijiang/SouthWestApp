@@ -1,0 +1,65 @@
+<tr>
+    <td>
+    <form action="__SELF__" method="post" enctype="multipart/form-data">
+    <input type="hidden" name='yuangong_id' value='{$info.yuangong_id}' />
+    <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce">
+      <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">姓名：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+        <input type="text" name="yuangong_name" value="{$info.yuangong_name}" />
+        </div></td>
+      </tr>
+       <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">手机号码：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+        <input type="text" name="yuangong_phone" value="{$info.yuangong_phone}"/>
+        </div></td>
+      </tr>
+       <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">员工价格：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+        <input type="text" name="yuangong_price" value="{$info.yuangong_price}"/>
+        </div></td>
+      </tr>
+       <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">经理推荐：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+            <textarea rows="5" cols="30" name="yuangong_tuijian"  style='width:350px;height:40px;'>{$info.yuangong_tuijian}</textarea>
+        </div></td>
+      </tr>
+      <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">所属类型：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+        <select name='cat_id'>
+        <option value='0'>-请选择-</option>
+            <foreach name='cateinfo' item='v'>
+               <option value='{$v.cat_id}' <eq name='info.cat_id' value='$v.cat_id'>selected='selected'</eq> >{$v.cat_name }</option>
+            </foreach>
+        </select>
+        </div></td>
+      </tr>
+      <tr>
+          <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">简介：</span></div></td>
+          <td height="20" bgcolor="#FFFFFF" class="STYLE19">
+               <div align="left">
+                   <textarea rows="5" cols="30" name="yuangong_jianjie"  style='width:350px;height:80px;'>{$info.yuangong_jianjie}</textarea>
+               </div>
+          </td>
+      </tr>
+      <tr>
+        <td height="100" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">头像：</span></div></td>
+        <td height="100" bgcolor="#FFFFFF" class="STYLE19">
+           <div align="left"><input type="file" name="yuangong_tx" /><img src='{$Think.const.SET_URL}{$info.yuangong_s_tx|substr=###,2}'alt='图片' width="80" height="80" /></div>
+        </td>
+      </tr>
+      <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6" colspan='100'>
+          <div align="center"><input type="submit" value='修改' /></div>
+        </td>
+      </tr>
+    </table>
+    </form>
+    </td>
+  </tr>
+ </table>
+</body>

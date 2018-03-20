@@ -1,0 +1,80 @@
+<script type="text/javascript" src='{$Think.const.PLUGIN_URL}jquerypage/jquery-page.js'></script>
+<link rel="stylesheet" type="text/css" href="{$Think.const.CSS_ADMIN_URL}page.css">
+<style type="text/css"> 
+  a{
+    text-decoration:none;
+    color:#00a7eb;
+  }
+  
+  .xuanzhou_box
+  {
+    height: 50px;
+    line-height: 50px;
+  }
+  
+  .txt
+  {
+    height: 24px;
+    line-height: 24px;
+    margin-left: 50px;
+  }
+ 
+  .btn
+  {
+    font-size: 18px;
+  }
+  
+  a{
+    text-decoration:none;
+    color:#00a7eb;
+  }
+  
+</style>
+  <tr>
+    <td>
+    <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce">
+    	
+    	 <tr>
+         <div class="xuanzhou_box">
+               <form action="__SELF__" method="post"  >
+                    <input type="text" class="txt" placeholder="评论搜索"  name="keyword"/>
+                    <input class="btn" type="submit" id="button" value="搜索" />
+              </form>
+         </div>
+      </tr>  
+      
+      <tr>
+          <td width="5%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">id</span></div></td>
+          <td width="5%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">评论内容</span></div></td>
+          <td width="8%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">评论用户</span></div></td>
+          <td width="18%"height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">评论的商品</span></div></td>
+          <td width="8%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">评论的员工</span></div></td>
+          <td width="8%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">评论星级</span></div></td>
+          <td width="8%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">服务次数</span></div></td>
+          <td width="8%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">点赞次数</span></div></td>
+      		<td width="8%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">是否展示</span></div></td>
+					<td width="8%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">评论时间</span></div></td>
+					<td width="8%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">更新时间</span></div></td>
+					<td width="8%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">操作</span></div></td>
+      </tr>
+    
+      <foreach name='info' item='v' key='k'>
+      	<tr>
+          <td width="5%" height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE10">{$v.cmt_id}</span></div></td>
+          <td width="5%" height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE10">{$v.cmt_msg}</span></div></td>
+          <td width="8%" height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE10">{$v.username}</span></div></td>
+          <td width="18%" height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE10">{$v.goods_name}</span></div></td>
+          <td width="8%" height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE10">{$v.yuangong_name}</span></div></td>
+          <td width="8%" height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE10">{$v.cmt_star}</span></div></td>
+          <td width="8%" height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE10">{$v.cmt_sernum}</span></div></td>
+          <td width="8%" height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE10">{$v.cmt_zannum}</span></div></td>
+      		<td width="8%" height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE10">{$v.is_show}</span></div></td>
+					<td width="8%" height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE10">{:date('Y-m-d H:i:s',$v[add_time])}</span></div></td>
+					<td width="8%" height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE10">{:date('Y-m-d H:i:s',$v[upt_time])}</span></div></td>       
+      		 <td height="100" bgcolor="#FFFFFF"><div align="center" class="STYLE21"><a style='color:rgb(59,99,119)'  href="{:U('update_comment',array('cmt_id'=>$v['cmt_id']))}">修改</a>&nbsp;&nbsp;&nbsp;
+           <a style='color:rgb(59,99,119)'  href=" {:U('del_comment',array('cmt_id'=>$v['cmt_id']))}" onclick="if(confirm('确认要删除我么？主人')){return true;}else{return false;}" >删除</a></div></td>
+         </tr>
+      </foreach>
+    </table></td>                         
+  </tr>
+ </table>

@@ -1,0 +1,104 @@
+<script type="text/javascript" src='{$Think.const.PLUGIN_URL}ueditor/ueditor.config.js'></script>
+<script type="text/javascript" src='{$Think.const.PLUGIN_URL}ueditor/ueditor.all.min.js'></script>
+<script type="text/javascript" src='{$Think.const.PLUGIN_URL}ueditor/lang/zh-cn/zh-cn.js'></script>
+ <style type="text/css">
+    input{
+      width: 360px;
+      height: 30px;
+      margin:0px 8px;
+    }
+    table tr td textarea{
+      margin:8px 8px;
+    }
+    #subzx{
+      width: 100px;
+      height: 40px;
+      margin:8px 8px;
+      color: #fff;
+      background-color: #545ECE;
+      border:1px solid #545ECE;
+    }
+    td.STYLE6{
+      height: 20px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #666;
+    }
+ </style>
+  <tr>
+    <td>
+    <form action="__SELF__" method="post">
+     <input type="hidden" name='dyn_id' value='{$info.dyn_id}' />
+    <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce">
+      <tr>
+        <td bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">文章标题：</span></div></td>
+        <td  bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+        <input type="text" name="dyn_title" value="{$info.dyn_title}"/>
+        </div></td>
+      </tr>
+      
+    	<tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">所属分类：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+        <select name='cat_id'>
+        <option value='0'>-请选择-</option>
+            <foreach name='cateinfo' item='v'>
+               <option value='{$v.cat_id}'<eq name='info.cat_id' value='$v.cat_id'>selected='selected'</eq>>{$v.cat_name }</option>
+            </foreach>
+        </select>
+        </div></td>
+      </tr>
+      
+     <tr>
+        <td  bgcolor="#FFFFFF" class="STYLE6" ><div align="right"><span class="STYLE19">文章内容：</span></div></td>
+        <td  bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+        <textarea rows="10" cols="80" id='dynamic_content' name='dyn_content' style='width:900px;height:500px;'>
+        	 {$info.dyn_content}
+        </textarea>
+        </div></td>
+      </tr>
+      
+       <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">文章顶配图：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19">
+           <div align="left"><input type="file" name="dyn_pho_yheadimg" /><img src='{$Think.const.SET_URL}{$info.dyn_pho_headimg|substr=###,2}'alt='图片' width="80" height="80" /></div>
+        </td>
+      </tr>
+      
+       <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">文章中配图：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19">
+           <div align="left"><input type="file" name="dyn_pho_ycenterimg" /><img src='{$Think.const.SET_URL}{$info.dyn_pho_centerimg|substr=###,2}'alt='图片' width="80" height="80" /></div>
+        </td>
+      </tr>
+      
+       <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">文章低配图：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19">
+           <div align="left"><input type="file" name="dyn_pho_ybottomimg" /><img src='{$Think.const.SET_URL}{$info.dyn_pho_bottomimg|substr=###,2}'alt='图片' width="80" height="80" /></div>
+        </td>
+      </tr>
+      
+      
+      <tr>
+        <td  bgcolor="#FFFFFF" class="STYLE6" colspan='100'>
+          <div align="center"><input type="submit" id="subzx" value='修改' /></div>
+        </td>
+      </tr>
+      
+    </table>
+    </form>
+    </td>
+  </tr>
+ </table>
+</body>
+<script type="text/javascript">
+   var ue = UE.getEditor('dynamic_content',{toolbars: [[
+      'fullscreen', 'source', '|', 'undo', 'redo', '|',
+      'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|',
+      'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
+      'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
+      'directionalityltr', 'directionalityrtl', 'indent', '|',
+      'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase'
+    ]]});
+  </script>

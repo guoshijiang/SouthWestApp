@@ -1,0 +1,98 @@
+<tr>
+    <td>
+    <form action="__SELF__" method="post" enctype="multipart/form-data">
+      <input type="hidden" name='goods_id' value='{$info.goods_id}' />
+    <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce">
+      <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">商品名称：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+        <input type="text" name="goods_name" value="{$info.goods_name}"/>
+        </div></td>
+      </tr>
+      <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">商品价格：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+        <input type="text" name="goods_price" value="{$info.goods_price}"/>
+        </div></td>
+      </tr>
+       <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">数量：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+        <input type="text" name="goods_number" value="{$info.goods_number}" />
+        </div></td>
+      </tr>
+       <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">重量：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+        <input type="text" name="goods_weight" value="{$info.goods_weight}"/>
+        </div></td>
+      </tr>
+       <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">推荐：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+        是：<input type="radio" name="is_rec" value="1" <eq name='info.is_rec' value='1'>checked="checked"</eq>/>
+        否：<input type="radio" name="is_rec" value="0" <eq name='info.is_rec' value='0'>checked="checked"</eq> />
+        </div></td>
+      </tr>
+      <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">所属类型：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="left">
+        <select name='cat_id'>
+        <option value='0'>-请选择-</option>
+            <foreach name='cateinfo' item='v'>
+               <option value='{$v.cat_id}'<eq name='info.cat_id' value='$v.cat_id'>selected='selected'</eq> >{$v.cat_name }</option>
+            </foreach>
+        </select>
+        </div></td>
+      </tr>
+      <tr>
+          <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">描述：</span></div></td>
+          <td height="20" bgcolor="#FFFFFF" class="STYLE19">
+               <div align="left">
+                   <textarea rows="5" cols="30" name="goods_introduce"  style='width:350px;height:80px;'>{$info.goods_introduce}</textarea>
+               </div>
+          </td>
+      </tr>
+      <tr>
+          <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">产地：</span></div></td>
+          <td height="20" bgcolor="#FFFFFF" class="STYLE19">
+               <div align="left">
+                   <textarea rows="5" cols="30" name="country"  style='width:350px;height:30px;line-height: 30px;'>{$info.country}</textarea>
+               </div>
+          </td>
+      </tr>
+      <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">商品logo图片：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19">
+           <div align="left"><input type="file" name="goods_tx" /><img src='{$Think.const.SET_URL}{$info.goods_s_logo|substr=###,2}'alt='图片' width="80" height="80" /></div>
+        </td>
+      </tr>
+      <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">商品相册图片1：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19">
+           <div align="left"><input type="file" name="goods_xc1" /><img src='{$Think.const.SET_URL}{$info.goods_s_xc1|substr=###,2}'alt='图片' width="80" height="80" /></div>
+        </td>
+      </tr>
+      <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">商品相册图片2：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19">
+           <div align="left"><input type="file" name="goods_xc2" /><img src='{$Think.const.SET_URL}{$info.goods_s_xc2|substr=###,2}'alt='图片' width="80" height="80" /></div>
+        </td>
+      </tr>
+      <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="right"><span class="STYLE19">商品相册图片3：</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19">
+           <div align="left"><input type="file" name="goods_xc3" /><img src='{$Think.const.SET_URL}{$info.goods_s_xc3|substr=###,2}'alt='图片' width="80" height="80" /></div>
+        </td>
+      </tr>
+      <tr>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6" colspan='100'>
+          <div align="center"><input type="submit" value='修改' /></div>
+        </td>
+      </tr>
+    </table>
+    </form>
+    </td>
+  </tr>
+ </table>
+</body>
